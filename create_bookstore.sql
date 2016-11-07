@@ -14,8 +14,6 @@ create table STORED_IN
 Book_ISBN varchar(15) not null,
 Ware_ID_Num int not null,
 Quantity int not null,
---primary key(Book_ISBN),
---primary key(Ware_ID_Num),
 foreign key(Book_ISBN) references BOOK(ISBN),
 foreign key(Ware_ID_Num) references WAREHOUSES(ID_Num)
 );
@@ -24,8 +22,6 @@ create table BOOK_PURCHASES
 (
 Book_ISBN varchar(15) not null,
 Order_Num int not null,
---primary key(Book_ISBN),
---primary key(Order_Num),
 foreign key(Book_ISBN) references BOOK(ISBN)
 foreign key(Order_Num) references PURCHASES(Order_Num)
 );
@@ -33,13 +29,9 @@ foreign key(Order_Num) references PURCHASES(Order_Num)
 create table BOOK_AUTHORS
 (
 Book_ISBN varchar(15) not null,
-A_First_Name varchar(15) not null,
-A_Last_Name varchar(15) not null,
---primary key(Book_ISBN),
---primary key(A_Last_Name),
+A_Name varchar(15) not null,
 foreign key(Book_ISBN) references BOOKS(ISBN)
-foreign key(A_First_Name) references AUTHORS(First_Name)
-foreign key(A_Last_Name) references AUTHORS(Last_Name)
+foreign key(A_Name) references AUTHORS(Name)
 );
 
 create table PUBLISHERS
@@ -70,12 +62,10 @@ foreign key(Cust_Username) references CUSTOMERS(Username)
 
 create table AUTHORS
 (
-First_Name varchar(15) not null,
-Last_Name varchar(15) not null,
+Name varchar(15) not null,
 Genre varchar(15),
 Pub_name varchar(30),
---primary key(First_Name),
-primary key(Last_Name),
+primary key(Name),
 foreign key(Pub_Name) references PUBLISHERS(Name)
 );
 

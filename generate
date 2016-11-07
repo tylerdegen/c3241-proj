@@ -1,0 +1,4 @@
+#!/bin/bash
+rm bookstore.sqlite
+sqlite3 bookstore.sqlite < create_bookstore.sql
+sqlite3 bookstore.sqlite < load_proj_data.sql

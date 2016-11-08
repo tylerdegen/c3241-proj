@@ -64,9 +64,15 @@ create table AUTHORS
 (
 Name varchar(15) not null,
 Genre varchar(15),
-Pub_name varchar(30),
-primary key(Name),
-foreign key(Pub_Name) references PUBLISHERS(Name)
+primary key(Name)
+);
+
+create table PUBLISHERS_AUTHORS
+(
+Pub_Name varchar(15) not null,
+A_Name varchar(15) not null,
+foreign key(Pub_Name) references PUBLISHERS(Name),
+foreign key(A_Name) references AUTHORS(Name)
 );
 
 create table MERCH_PURCHASES
@@ -97,15 +103,4 @@ Password varchar(15) not null,
 Email varchar(30) not null,
 Phone_Number varchar(15) not null,
 primary key(Username)
-);
-
-create table TEMP
-(
-ISBN varchar(15),
-Title varchar(30),
-Author varchar(30),
-Publisher varchar(30),
-Year int,
-Price real,
-Category varchar(15)
 );
